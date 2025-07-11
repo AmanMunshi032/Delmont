@@ -6,6 +6,13 @@ import AvailableCamps from "./pages/AvailableCamps/AvailableCamps";
 import AuthLayout from "../Layout/AuthLayout/AuthLayout";
 import Login from "./pages/Authenticarion/Login/Login";
 import Rigester from "./pages/Authenticarion/Rigester/Rigester";
+import DashboardLayout from "../Layout/DeshboardLayout/DeshboardLayour";
+import AddCamp from "./pages/Deshboard/AddCamp";
+
+// import JoinCampModal from "./pages/JoinCampModal/JoinCampModal"
+ import CampDetails from "./pages/CampDitels/CampDitels";
+import MangeCamps from "./pages/Deshboard/MangeCamps";
+
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -19,8 +26,12 @@ import Rigester from "./pages/Authenticarion/Rigester/Rigester";
         {
           path:'/AvailableCamps',
           Component:AvailableCamps
+        },
+        {
+          path:'/CampDitels/:id',
+          Component:CampDetails
         }
-        
+      
       
       ]
     },
@@ -37,5 +48,21 @@ import Rigester from "./pages/Authenticarion/Rigester/Rigester";
           Component:Rigester
         }
       ]
+    
+    },
+    {
+      path:'/dashboard',
+      Component:DashboardLayout,
+      children:[
+        {
+          path:'AddCamp',
+          Component:AddCamp 
+        },
+        {
+          path:'ManageCamps',
+          Component:MangeCamps
+        }
+      ]
     }
+
   ]);
