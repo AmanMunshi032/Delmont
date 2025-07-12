@@ -77,7 +77,7 @@ const MangeCamps = () => {
               <td className="px-4 py-2">{camp.location}</td>
               <td className="px-4 py-2">{camp.doctor}</td>
               <td className="px-4 py-2 text-center space-x-2">
-                <Link to={`/Update/${camp._id}`}>
+                <Link to={`/dashboard/Update/${camp._id}`}>
                <button
                   
                   className="bg-yellow-400 hover:bg-yellow-500 mb-3 text-white px-3 py-1 rounded"

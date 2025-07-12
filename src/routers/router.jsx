@@ -1,5 +1,5 @@
 
-import {createBrowserRouter} from "react-router";
+import {createBrowserRouter, } from "react-router";
 import Root from "../Layout/Root";
 import Home from "./pages/Home/Home";
 import AvailableCamps from "./pages/AvailableCamps/AvailableCamps";
@@ -66,7 +66,10 @@ import Update from "./pages/Deshboard/UpdateData/Update";
         },
         {
           path:'Update/:id',
-          Component:Update
+          Component:Update,
+          loader:({params})=> fetch(`http://localhost:5000/organizerlode/${params.id   
+          }`)
+
           
         }
       ]
