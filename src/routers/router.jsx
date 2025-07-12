@@ -12,6 +12,8 @@ import AddCamp from "./pages/Deshboard/AddCamp";
 // import JoinCampModal from "./pages/JoinCampModal/JoinCampModal"
  import CampDetails from "./pages/CampDitels/CampDitels";
 import MangeCamps from "./pages/Deshboard/MangeCamps";
+import Update from "./pages/Deshboard/UpdateData/Update";
+
 
   export const router = createBrowserRouter([
     {
@@ -28,7 +30,7 @@ import MangeCamps from "./pages/Deshboard/MangeCamps";
           Component:AvailableCamps
         },
         {
-          path:'/CampDitels/:id',
+          path:'/CampDitels/:campId',
           Component:CampDetails
         }
       
@@ -61,6 +63,11 @@ import MangeCamps from "./pages/Deshboard/MangeCamps";
         {
           path:'ManageCamps',
           Component:MangeCamps
+        },
+        {
+          path:'Update/:id',
+          Component:Update
+          
         }
       ]
     }

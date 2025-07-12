@@ -21,7 +21,7 @@ const links = (
     </ul>
     <ul>
       <li className="font-bold md:text-xl text-md">
-        <NavLink to="/CampDitels/:id">CampDitels</NavLink>
+        <NavLink to={`CampDitels`}>CampDitels</NavLink>
       </li>
     </ul>
   </>
