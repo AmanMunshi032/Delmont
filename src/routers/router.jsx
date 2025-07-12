@@ -30,7 +30,7 @@ import Update from "./pages/Deshboard/UpdateData/Update";
           Component:AvailableCamps
         },
         {
-          path:'/CampDitels/:campId',
+          path:'/CampDetails/:campId',
           Component:CampDetails
         }
       

@@ -19,11 +19,7 @@ const links = (
         <NavLink to="/AvailableCamps">Available-camps</NavLink>
       </li>
     </ul>
-    <ul>
-      <li className="font-bold md:text-xl text-md">
-        <NavLink to={`CampDitels`}>CampDitels</NavLink>
-      </li>
-    </ul>
+   
   </>
 );
 

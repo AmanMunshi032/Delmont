@@ -17,11 +17,16 @@ const Rigester = () => {
   const { Creactuser,Updateprofile,setuser } = useAuth();
   const onsubmit = (data) => {
     console.log(data);
+    
+
+    Creactuser(data.email, data.password)
+      .then((result) => {
          const userProfile = {
                     displayName: data.name,
                     photoURL: profilePic
                 }
-    Updateprofile(userProfile)
+   
+       Updateprofile(userProfile)
     .then(()=>{
       setuser()
       console.log('profile name pic updated')
@@ -29,10 +34,7 @@ const Rigester = () => {
     .catch((error) =>{
       console.error(error)
     })
-    
 
-    Creactuser(data.email, data.password)
-      .then((result) => {
         setuser({profilePic,...result.user})
         console.log(result.user);
       })
