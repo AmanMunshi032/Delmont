@@ -4,6 +4,7 @@ import SocilaLoging from "../../shared/SocilaLoging/SocilaLoging";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/UseAuth";
 import axios from "axios";
+import UseAxious from "../../../../hooks/UseAxious";
 
 
 const Rigester = () => {
@@ -13,14 +14,24 @@ const Rigester = () => {
     formState: { errors },
   } = useForm();
      const [profilePic, setProfilePic] = useState('');
+     const useAxious = UseAxious()
      console.log(profilePic)
   const { Creactuser,Updateprofile,setuser } = useAuth();
-  const onsubmit = (data) => {
+  const onsubmit =(data) => {
     console.log(data);
-    
-
+  
     Creactuser(data.email, data.password)
-      .then((result) => {
+      .then( async(result) => {
+      // update user info 
+      const  updateinfo ={
+        email:data.email,
+        role:'user',
+        created_at :new Date().toISOString()
+      }
+
+      const userRes = await useAxious.post('/users',updateinfo)
+        console.log(userRes.data)
+        // user profil info
          const userProfile = {
                     displayName: data.name,
                     photoURL: profilePic
