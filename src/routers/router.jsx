@@ -8,11 +8,11 @@ import Login from "./pages/Authenticarion/Login/Login";
 import Rigester from "./pages/Authenticarion/Rigester/Rigester";
 import DashboardLayout from "../Layout/DeshboardLayout/DeshboardLayour";
 import AddCamp from "./pages/Deshboard/AddCamp";
-
-// import JoinCampModal from "./pages/JoinCampModal/JoinCampModal"
  import CampDetails from "./pages/CampDitels/CampDitels";
 import MangeCamps from "./pages/Deshboard/MangeCamps";
 import Update from "./pages/Deshboard/UpdateData/Update";
+import OrganizerProfile from "./pages/Deshboard/OrganizerProfile";
+import PrivetRouter from "../router/PrivetRouter";
 
 
   export const router = createBrowserRouter([
@@ -27,7 +27,7 @@ import Update from "./pages/Deshboard/UpdateData/Update";
         },
         {
           path:'/AvailableCamps',
-          Component:AvailableCamps
+          element:<AvailableCamps></AvailableCamps>
         },
         {
           path:'/CampDetails/:campId',
@@ -54,8 +54,16 @@ import Update from "./pages/Deshboard/UpdateData/Update";
     },
     {
       path:'/dashboard',
-      Component:DashboardLayout,
+       element:<PrivetRouter>
+        <DashboardLayout></DashboardLayout>
+       </PrivetRouter>,
       children:[
+
+        {
+         path:'OrganizerProfile',
+         Component:OrganizerProfile
+        
+        },
         {
           path:'AddCamp',
           Component:AddCamp 
@@ -65,11 +73,8 @@ import Update from "./pages/Deshboard/UpdateData/Update";
           Component:MangeCamps
         },
         {
-          path:'Update/:id',
+          path:'Update/:updateId',
           Component:Update,
-          loader:({params})=> fetch(`http://localhost:5000/organizerlode/${params.id   
-          }`)
-
           
         }
       ]

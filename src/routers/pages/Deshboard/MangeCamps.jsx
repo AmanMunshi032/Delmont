@@ -3,10 +3,10 @@ import React from "react";
 import useAuth from "../../../hooks/UseAuth";
 import UseAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { Link,  } from "react-router";
+import { Link, useNavigate,  } from "react-router";
 
 const MangeCamps = () => {
-    // const navigate = useNavigate();
+   const navigate = useNavigate();
   const { user } = useAuth();
   const axiosSecure = UseAxiosSecure();
   const { data: camps = [], refetch } = useQuery({
@@ -16,9 +16,9 @@ const MangeCamps = () => {
       return res.data;
     },
   });
-  // const handleUpdate = (id) => {
-  //   navigate(`/Update/${id}`)
-  // };
+  const handleUpdate = (id) => {
+    navigate(`/dashboard/Update/${id}`)
+  };
   const handleDelete =  async(id) => {
     const confirm = await  Swal.fire({
   title: "Are you sure?",
@@ -77,14 +77,14 @@ const MangeCamps = () => {
               <td className="px-4 py-2">{camp.location}</td>
               <td className="px-4 py-2">{camp.doctor}</td>
               <td className="px-4 py-2 text-center space-x-2">
-                <Link to={`/dashboard/Update/${camp._id}`}>
+                
                <button
-                  
+                      onClick={() => handleUpdate(camp._id)}
                   className="bg-yellow-400 hover:bg-yellow-500 mb-3 text-white px-3 py-1 rounded"
                 >
                   Update
                 </button>
-                </Link>
+                
               
                 <button
                   onClick={() => handleDelete(camp._id)}

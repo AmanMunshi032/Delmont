@@ -47,7 +47,7 @@ export default function DashboardLayout() {
            <Logo></Logo>
           </Link>
           <NavLink
-            to="/dashboard/profile"
+            to="/dashboard/OrganizerProfile"
             className={({ isActive }) =>
               isActive ? "text-cyan-400 block" : "hover:text-cyan-400 block"
             }

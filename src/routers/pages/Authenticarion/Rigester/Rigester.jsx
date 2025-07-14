@@ -16,7 +16,7 @@ const Rigester = () => {
      const [profilePic, setProfilePic] = useState('');
      const useAxious = UseAxious()
      console.log(profilePic)
-  const { Creactuser,Updateprofile,setuser } = useAuth();
+  const { Creactuser,Updateprofile,setuser} = useAuth();
   const onsubmit =(data) => {
     console.log(data);
   

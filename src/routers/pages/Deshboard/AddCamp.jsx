@@ -17,6 +17,8 @@ const AddCamp = () => {
        console.log(data)
        const AddData ={
          ...data,
+          Name:user.displayName,
+         ProfilImg:user.photoURL,
           created_by: user.email,
           participantCount : 0,
        }
@@ -53,6 +55,8 @@ const AddCamp = () => {
 
         <input {...register("location", { required: true })} placeholder="Location" className="input w-full" />
         {errors.location && <p className="text-red-500 text-sm">Location is required</p>}
+        <input {...register("Contact", { required: true })} placeholder="Contact" className="input w-full" />
+        {errors.Contact && <p className="text-red-500 text-sm">Contact is required</p>}
 
         <input {...register("doctor", { required: true })} placeholder="Healthcare Professional" className="input w-full" />
         {errors.doctor && <p className="text-red-500 text-sm">Healthcare professional required</p>}
