@@ -127,13 +127,13 @@ const CampDetails = () => {
               />
               <input
                 type="text"
-                value={user.displayName}
+                value={user?.displayName}
                 readOnly
                 className="input w-full bg-gray-100"
               />
               <input
                 type="email"
-                value={user.email}
+                value={user?.email}
                 readOnly
                 className="input w-full bg-gray-100"
               />
