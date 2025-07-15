@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocilaLoging from "../../shared/SocilaLoging/SocilaLoging";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/UseAuth";
@@ -11,12 +11,16 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const{Sigin}=useAuth()
+  const location = useLocation()
+  const navegate = useNavigate()
+  const from = location.state?.from ||'/'
   const onSubmit = (data) => {
     console.log(data);
     
 Sigin(data.email,data.password)
 .then(result =>{
  console.log(result.user)
+ navegate(from)
 })
 .catch(error=>{
   console.log(error)
@@ -57,7 +61,7 @@ Sigin(data.email,data.password)
           </form>
           <p>
             New to this site ? please
-            <Link
+            <Link state={{from}}
               className=" text-blue-500 underline ml-2 font-bold"
               to="/Rigester"
             >

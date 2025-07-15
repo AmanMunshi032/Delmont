@@ -13,6 +13,7 @@ import MangeCamps from "./pages/Deshboard/MangeCamps";
 import Update from "./pages/Deshboard/UpdateData/Update";
 import OrganizerProfile from "./pages/Deshboard/OrganizerProfile";
 import PrivetRouter from "../router/PrivetRouter";
+import ManageRegisteredCamps from "./pages/Deshboard/ManageRegisteredCamps";
 
 
   export const router = createBrowserRouter([
@@ -76,6 +77,10 @@ import PrivetRouter from "../router/PrivetRouter";
           path:'Update/:updateId',
           Component:Update,
           
+        },
+        {
+           path:'ManageRegisteredCamps',
+           Component:ManageRegisteredCamps
         }
       ]
     }

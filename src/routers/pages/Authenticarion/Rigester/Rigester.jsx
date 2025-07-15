@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SocilaLoging from "../../shared/SocilaLoging/SocilaLoging";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/UseAuth";
 import axios from "axios";
 import UseAxious from "../../../../hooks/UseAxious";
+import { useLocation } from "react-router";
 
 
 const Rigester = () => {
@@ -15,7 +16,10 @@ const Rigester = () => {
   } = useForm();
      const [profilePic, setProfilePic] = useState('');
      const useAxious = UseAxious()
-     console.log(profilePic)
+     const location = useLocation()
+     const navegate = useNavigate()
+     const from = location.state?.from || '/'
+    //  console.log(profilePic)
   const { Creactuser,Updateprofile,setuser} = useAuth();
   const onsubmit =(data) => {
     console.log(data);
@@ -24,8 +28,9 @@ const Rigester = () => {
       .then( async(result) => {
       // update user info 
       const  updateinfo ={
+
         email:data.email,
-        role:'user',
+        role:'Participant',
         created_at :new Date().toISOString()
       }
 
@@ -41,6 +46,7 @@ const Rigester = () => {
     .then(()=>{
       setuser()
       console.log('profile name pic updated')
+      navegate(from)
     })
     .catch((error) =>{
       console.error(error)

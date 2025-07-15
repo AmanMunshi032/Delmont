@@ -77,7 +77,7 @@ export default function DashboardLayout() {
           </NavLink>
 
           <NavLink
-            to="/dashboard/manage-registered"
+            to="/dashboard/ManageRegisteredCamps"
             className={({ isActive }) =>
               isActive ? "text-cyan-400 block" : "hover:text-cyan-400 block"
             }
