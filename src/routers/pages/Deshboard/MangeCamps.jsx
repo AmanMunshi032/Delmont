@@ -3,16 +3,17 @@ import React from "react";
 import useAuth from "../../../hooks/UseAuth";
 import UseAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { Link, useNavigate,  } from "react-router";
+import {  useNavigate,  } from "react-router";
 
 const MangeCamps = () => {
    const navigate = useNavigate();
   const { user } = useAuth();
   const axiosSecure = UseAxiosSecure();
   const { data: camps = [], refetch } = useQuery({
-    querykey: ["manageCamps", user?.email],
+    querykey: ["manage-Camps", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/organizerlode?email=${user.email}`);
+      const res = await axiosSecure.get(`/organizerlode?email=${user?.email}`);
+
       return res.data;
     },
   });
@@ -52,9 +53,6 @@ const MangeCamps = () => {
             }
         }
   }
-
-
-
 
   return (
     <div className="overflow-x-auto p-4">

@@ -11,7 +11,7 @@ const AvailableCamps = () => {
   const [isThreeColumn, setIsThreeColumn] = useState(true);
 const axiosSecure = UseAxiosSecure()
   // Fetch camp data
-    const {data: camps= []}=useQuery({
+    const {data: camps= [],isLoading}=useQuery({
     
         querykey:['PopulerCamps'],
         queryFn : async ()=>{
@@ -19,6 +19,7 @@ const axiosSecure = UseAxiosSecure()
           return res.data
         }
        })
+     
 
   // Filter and sort logic
   const filteredCamps = useMemo(() => {
@@ -53,6 +54,9 @@ const axiosSecure = UseAxiosSecure()
     return result;
   }, [camps, searchTerm, sortBy]);
 
+    if(isLoading){
+        return <span className="loading loading-spinner loading-xl"></span>
+       }
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <h1 className="text-3xl font-bold text-center mb-6">Available Medical Camps</h1>

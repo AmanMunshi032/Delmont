@@ -12,9 +12,9 @@ const AddCamp = () => {
   } = useForm();
   const axiosSecure = UseAxiosSecure()
   const {user}=useAuth()
-  console.log(user)
+
   const onSubmit = (data) => {
-       console.log(data)
+      //  console.log(data)
        const AddData ={
          ...data,
           Name:user.displayName,

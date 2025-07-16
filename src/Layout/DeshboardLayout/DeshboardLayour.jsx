@@ -8,12 +8,15 @@ import {
   FaCheckCircle,
   FaTimes,
 } from "react-icons/fa";
+import { FiBarChart2, FiClipboard, FiCreditCard } from "react-icons/fi";
 import { Link, NavLink, Outlet } from "react-router";
 import Logo from "../../routers/pages/shared/Logo/Logo";
+import UseUserRole from "../../hooks/UseUserRole";
 
 export default function DashboardLayout() {
   const [isOpen, setIsOpen] = useState(false);
-
+   const {role,roleLoding }=UseUserRole()
+  //  console.log(role)
   return (
     <div className="min-h-screen  max-w-7xl mx-auto flex flex-col md:flex-row">
       {/* Mobile Menu Button */}
@@ -46,7 +49,60 @@ export default function DashboardLayout() {
              <Link  to='/'>
            <Logo></Logo>
           </Link>
-          <NavLink
+         {/* Participant Deshboard */}
+        {!roleLoding && role === 'Participant' && 
+        <>
+         <NavLink
+            to="/dashboard/analytics"
+            className={({ isActive }) => isActive ?"text-cyan-400 block" : "hover:text-cyan-400 block"
+              
+            }
+          >
+            <FiBarChart2 className="inline mr-2"/>
+            Analytics
+          </NavLink>
+
+            <NavLink
+            to="/dashboard/ParticipantProfile"
+            className={({ isActive }) =>
+           isActive ?"text-cyan-400 block" : "hover:text-cyan-400 block"
+              
+            }
+          >
+            <FaUser  className="inline mr-2"  />
+            Participant Profile
+          </NavLink>
+
+           <NavLink
+            to="/dashboard/registered-camps"
+            className={({ isActive }) =>
+             
+                isActive ?"text-cyan-400 block" : "hover:text-cyan-400 block"
+              
+            }
+          >
+            <FiClipboard  className="inline mr-2" />
+            Registered Camps
+          </NavLink>
+
+             <NavLink
+            to="/dashboard/payment-history"
+            className={({ isActive }) =>
+           
+                isActive ? "text-cyan-400 block" : "hover:text-cyan-400 block"
+            
+            }
+          >
+            <FiCreditCard  className="inline mr-2" />
+            Payment History
+          </NavLink>
+
+        </>
+        }
+
+       {!roleLoding && role === 'admin' && 
+       <>
+        <NavLink
             to="/dashboard/OrganizerProfile"
             className={({ isActive }) =>
               isActive ? "text-cyan-400 block" : "hover:text-cyan-400 block"
@@ -85,6 +141,10 @@ export default function DashboardLayout() {
             <FaCheckCircle className="inline mr-2" />
             Manage Registered
           </NavLink>
+       </>
+       }
+         
+    
         </nav>
       </aside>
 

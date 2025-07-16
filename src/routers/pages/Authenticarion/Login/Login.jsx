@@ -34,7 +34,7 @@ Sigin(data.email,data.password)
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl space-y-5">
         <div className="card-body">
           <h1 className="text-3xl font-bold text-center">Login now!</h1>
-          <form onSubmit={handleSubmit(onSubmit)} lassName="fieldset">
+          <form onSubmit={handleSubmit(onSubmit)} >
             <label className="label">Email</label>
             <input
               type="email"

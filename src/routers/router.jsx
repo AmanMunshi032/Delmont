@@ -14,6 +14,8 @@ import Update from "./pages/Deshboard/UpdateData/Update";
 import OrganizerProfile from "./pages/Deshboard/OrganizerProfile";
 import PrivetRouter from "../router/PrivetRouter";
 import ManageRegisteredCamps from "./pages/Deshboard/ManageRegisteredCamps";
+import Analytics from "./pages/Deshboard/ParticipantDashboard/Analytics";
+import ParticipantProfile from "./pages/Deshboard/ParticipantDashboard/ParticipantProfile";
 
 
   export const router = createBrowserRouter([
@@ -81,7 +83,16 @@ import ManageRegisteredCamps from "./pages/Deshboard/ManageRegisteredCamps";
         {
            path:'ManageRegisteredCamps',
            Component:ManageRegisteredCamps
-        }
+        },
+        // Participant Dashboard
+         {
+           path:'Analytics',
+           Component:Analytics
+         },
+         {
+          path:'ParticipantProfile',
+          Component:ParticipantProfile
+         }
       ]
     }
 

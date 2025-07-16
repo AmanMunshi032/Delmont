@@ -25,7 +25,7 @@ const links = (
 
 const Navbar = () => {
   const { user,Logout } = useAuth();
-  console.log(user);
+ 
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 

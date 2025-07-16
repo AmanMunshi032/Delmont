@@ -7,13 +7,16 @@ const PopularCampsSection = () => {
  
     const  axiosSecure = UseAxiosSecure()
 
-       const {data: camps= []}=useQuery({
-        querykey:['PopulerCamps'],
+       const {data: camps=[],isPending}=useQuery({
+        querykey:['Populer-Camps'],
         queryFn : async ()=>{
           const res = await axiosSecure.get('/organizer')
           return res.data
         }
        })
+           if (isPending) {
+           return <span className="loading loading-spinner loading-xl"></span>
+    }
 
         // Sort by participantCount in descending order and take top 6
         // const sorted = data

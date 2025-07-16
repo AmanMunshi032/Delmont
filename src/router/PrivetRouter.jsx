@@ -3,10 +3,10 @@ import useAuth from '../hooks/UseAuth';
 import { Navigate, useLocation } from 'react-router';
 
 const PrivetRouter = ({children}) => {
-    const {user, loading}=useAuth()
+    const {user, Loding}=useAuth()
     const location = useLocation()
-    
-    if (loading) {
+    //  console.log(Loding )
+     if (Loding) {
         return <span className="loading loading-spinner loading-xl"></span>
     }
         if (!user) {

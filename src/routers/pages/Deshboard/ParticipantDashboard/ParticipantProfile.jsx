@@ -1,10 +1,9 @@
+import React from 'react';
+import Swal from 'sweetalert2';
+import useAuth from '../../../../hooks/UseAuth';
 
-import useAuth from "../../../hooks/UseAuth";
-import Swal from "sweetalert2";
-
-
-const OrganizerProfile = () => {
-  const {user, Updateprofile,setuser}=useAuth()
+const ParticipantProfile = () => {
+     const {user, Updateprofile,setuser}=useAuth()
   console.log(user)
   const handelupdate=(e)=>{
         e.preventDefault();
@@ -25,8 +24,8 @@ const OrganizerProfile = () => {
        console.log(error)
       });
     }
-  return (
-     <div className='flex justify-center items-center '>
+    return (
+           <div className='flex justify-center items-center '>
             <div className=' bg-base-300  text-center  md:px-30 md:py-20   px-4 py-4 my-12 rounded-md'>
               <div className='flex justify-center items-center px-24 py-10 bg-white rounded-xl shadow-xl'>
               <img  className='md:w-24 md:h-24  rounded-full' src={user && user.photoURL} alt="" />
@@ -45,7 +44,7 @@ const OrganizerProfile = () => {
 
             </div>
         </div>
-  );
+    );
 };
 
-export default OrganizerProfile;
+export default ParticipantProfile;

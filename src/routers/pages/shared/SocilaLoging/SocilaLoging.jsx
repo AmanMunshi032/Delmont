@@ -1,17 +1,27 @@
 import React from 'react';
 import useAuth from '../../../../hooks/UseAuth';
 import { useLocation, useNavigate } from 'react-router';
+import UseAxious from '../../../../hooks/UseAxious';
 
 const SocilaLoging = () => {
     const {siginGoogle}=useAuth()
     const location = useLocation()
     const navegate = useNavigate()
     const from = location.state?.from || '/'
-
+   const axiouesIenstenc = UseAxious()
     const handelgoogle=()=>{
         siginGoogle()
-        .then(result => {
-            console.log(result)
+        .then( async(result) => {
+            const user= result.user;
+            console.log(result.user)
+             // update user info 
+      const  updateinfo ={
+        email:user.email,
+        role:'Participant',
+        created_at :new Date().toISOString()
+      }
+     const res = await axiouesIenstenc.post('/users',updateinfo)
+        console.log('user update info',res.data)
             navegate(from)
         })
         .catch(error => {

@@ -5,7 +5,7 @@ import { auth } from '../../Firebase/Firebaseinit';
 
  const googleprovider = new GoogleAuthProvider()
 const Authprovider = ({children}) => {
-    const [Loging ,setLoding] = useState(true)
+    const [Loding ,setLoding] = useState(true)
     const [user,setuser]=useState(null)
    
     const Creactuser = (email,password)=>{
@@ -31,7 +31,7 @@ const Authprovider = ({children}) => {
     useEffect(()=>{
       const unsubscribe = onAuthStateChanged(auth,(currentuser)=>{
         setuser(currentuser)
-         console.log('user in the auth state change', currentuser)
+        //  console.log('user in the auth state change', currentuser)
         setLoding(false)
       })
       return ()=>{
@@ -44,7 +44,7 @@ const Authprovider = ({children}) => {
       Creactuser,
       Sigin ,
       Logout ,
-      Loging,
+      Loding,
       siginGoogle,
       Updateprofile
     }
