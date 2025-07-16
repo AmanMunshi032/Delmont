@@ -53,6 +53,8 @@ const CampDetails = () => {
       phone: form.phone.value,
       gender: form.gender.value,
       emergencyContact: form.emergencyContact.value,
+     
+
     };
     mutation.mutate(participantData);
   };
