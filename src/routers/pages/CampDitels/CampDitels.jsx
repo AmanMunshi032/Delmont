@@ -43,6 +43,7 @@ const CampDetails = () => {
     const form = e.target;
     const participantData = {
       campId: camp._id,
+      payment_status: 'unpaid',
       campName: camp.campName,
       campFees: camp.campFees,
       location: camp.location,

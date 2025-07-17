@@ -19,6 +19,8 @@ const AddCamp = () => {
          ...data,
           Name:user.displayName,
          ProfilImg:user.photoURL,
+          payment_status: 'unpaid',
+           creation_date: new Date().toISOString(),
           created_by: user.email,
           participantCount : 0,
        }
