@@ -64,7 +64,7 @@ const RegisteredCamps = () => {
                 <td>{camp.participantName}</td>
                 <td>
                   {camp.payment_status === "paid" ? (
-                    <span className=" btn bg-cyan-400 font-medium">Paid</span>
+                    <span className=" bg-cyan-500 px-2 py-1 rounded-md text-white font-medium">Paid</span>
                   ) : (
                     <button
                       onClick={() => handlePayment(camp._id)}
@@ -77,12 +77,12 @@ const RegisteredCamps = () => {
                 <td>
                   <span
                     className={
-                      camp.payment_status === "paid"
-                        ? "text-green-600"
-                        : "text-yellow-600"
+                      camp.Confirmation === "confirmed"
+                        ? "bg-green-600 font-semibold px-2 text-white py-1 rounded-md "
+                        : "bg-red-600 font-semibold px-2 text-white py-1 rounded-md"
                     }
                   >
-                    {camp.payment_status}
+                    {camp.Confirmation}
                   </span>
                 </td>
                 <td className="flex flex-col gap-2">

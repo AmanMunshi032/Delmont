@@ -86,7 +86,7 @@ export default function DashboardLayout() {
           </NavLink>
 
              <NavLink
-            to="/dashboard/payment-history"
+            to="/dashboard/Paymenthestory"
             className={({ isActive }) =>
            
                 isActive ? "text-cyan-400 block" : "hover:text-cyan-400 block"

@@ -18,6 +18,7 @@ import Analytics from "./pages/Deshboard/ParticipantDashboard/Analytics";
 import ParticipantProfile from "./pages/Deshboard/ParticipantDashboard/ParticipantProfile";
 import RegisteredCamps from "./pages/Deshboard/ParticipantDashboard/RegisterCamps";
 import Payment from "./pages/Deshboard/Payment/Payment";
+import Paymenthestory from "./pages/Deshboard/Payment/Paymenthestory/Paymenthestory";
 
 
   export const router = createBrowserRouter([
@@ -102,6 +103,10 @@ import Payment from "./pages/Deshboard/Payment/Payment";
          {
           path:'Payment/:ParticipantId',
           Component:Payment
+         },
+         {
+          path:'Paymenthestory',
+          Component:Paymenthestory
          }
       ]
     }

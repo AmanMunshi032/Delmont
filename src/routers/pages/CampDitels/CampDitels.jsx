@@ -44,6 +44,7 @@ const CampDetails = () => {
     const participantData = {
       campId: camp._id,
       payment_status: 'unpaid',
+      Confirmation: 'pending',
       campName: camp.campName,
       campFees: camp.campFees,
       location: camp.location,

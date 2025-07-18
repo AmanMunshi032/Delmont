@@ -1,21 +1,36 @@
 // components/FeedbackModal.jsx
+
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+
 import { toast } from 'react-toastify';
+import UseAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 
 const FeedbackModal = ({ camp, onClose, participantEmail }) => {
   const { register, handleSubmit, reset } = useForm();
+  const axiousSecure =UseAxiosSecure()
 
   const onSubmit = async (data) => {
-    await axios.post('/api/feedback', {
-      ...data,
-      campId: camp._id,
+    const DataFeedback ={
+           ...data,
+       campId: camp._id,
       participantEmail,
-    });
+    }
     toast.success('Feedback submitted');
     reset();
     onClose();
+    axiousSecure.post('/Feedback', DataFeedback)
+    .then(res=>{
+   console.log(res.data)
+    Swal.fire({
+     title: "Good job!",
+     text: " Feedback data added successfully!",
+     icon: "success"
+   });
+    })
+
+   
   };
 
   return (

@@ -117,7 +117,7 @@ const PaymentForm = () => {
           className="btn bg-cyan-300 text-black w-full"
           disabled={!stripe}
         >
-          Pay ${amount}
+          Pay <span className="text-xl font-bold">৳</span> {amount}
         </button>
         {error && <p className="text-red-500">{error}</p>}
       </form>
