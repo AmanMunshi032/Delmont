@@ -15,7 +15,10 @@ const FeedbackModal = ({ camp, onClose, participantEmail }) => {
     const DataFeedback ={
            ...data,
        campId: camp._id,
-      participantEmail,
+       campName:camp.campName,
+      participantEmail,    
+      participantName:camp.participantName,
+
     }
     toast.success('Feedback submitted');
     reset();

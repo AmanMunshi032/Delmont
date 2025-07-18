@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner/Banner';
 import PopularCampsSection from './PoularCampsSection/PopularCampsSection';
 import WhyJoinSection from './Relavent/Relavent';
+import FeetBackandReting from './Feetback/FeetBackandReting';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
          <Banner></Banner>
          <PopularCampsSection></PopularCampsSection>
          <WhyJoinSection></WhyJoinSection>
+         <FeetBackandReting></FeetBackandReting>
         </div>
     );
 };

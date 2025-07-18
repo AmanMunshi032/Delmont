@@ -17,8 +17,7 @@ const RegisteredCamps = () => {
     queryKey: ["registeredCamps", user?.email],
     queryFn: async () => {
       const res = await axiousSecure.get(
-        `/registered-camps?email=${user?.email}`
-      );
+        `/registered-camps?email=${user?.email}` );
       return res.data;
     },
   });
@@ -113,6 +112,7 @@ const RegisteredCamps = () => {
           camp={selectedCamp}
           onClose={() => setSelectedCamp(null)}
           participantEmail={user.email}
+         
         />
       )}
     </div>
