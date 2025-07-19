@@ -1,4 +1,4 @@
-// components/RegisteredCamps.jsx
+
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { toast } from "react-toastify";
@@ -8,21 +8,24 @@ import FeedbackModal from "./FeedbackModel";
 import { useNavigate } from "react-router";
 
 const RegisteredCamps = () => {
-   const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedCamp, setSelectedCamp] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 10;
+
   const queryClient = useQueryClient();
   const axiousSecure = UseAxiosSecure();
   const { user } = useAuth();
   const navigate = useNavigate();
+
   const { data: camps = [] } = useQuery({
     queryKey: ["registeredCamps", user?.email],
     queryFn: async () => {
-      const res = await axiousSecure.get(
-        `/registered-camps?email=${user?.email}` );
+      const res = await axiousSecure.get(`/registered-camps?email=${user?.email}`);
       return res.data;
     },
   });
-  // console.log(camps)
+
   const cancelMutation = useMutation({
     mutationFn: async (id) => axiousSecure.delete(`/cancel-registration/${id}`),
     onSuccess: () => {
@@ -31,38 +34,48 @@ const RegisteredCamps = () => {
     },
   });
 
-  const handlePayment = async (id) => {
-    console.log(id);
+  const handlePayment = (id) => {
     navigate(`/dashboard/Payment/${id}`);
-   
   };
 
   const handleCancel = (id, paid) => {
     if (!paid) cancelMutation.mutate(id);
   };
 
-   const filteredCamps = useMemo (()=>{
-     let result = [...camps];
-     if(searchTerm){
-      const term = searchTerm.toLocaleLowerCase()
-     result = result.filter((camp)=>camp.campName.toLowerCase().includes(term) ||
-    camp.participantName.toLowerCase().includes(term) ||  camp.campFees.toLowerCase().includes(term) 
-  )
-     }
-     return result;
+  const filteredCamps = useMemo(() => {
+    let result = [...camps];
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      result = result.filter(
+        (camp) =>
+          camp.campName.toLowerCase().includes(term) ||
+          camp.participantName.toLowerCase().includes(term) ||
+          camp.campFees.toLowerCase().includes(term)
+      );
+    }
+    return result;
+  }, [camps, searchTerm]);
 
-   },[camps,searchTerm])
+  const paginatedCamps = useMemo(() => {
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    return filteredCamps.slice(startIndex, startIndex + rowsPerPage);
+  }, [filteredCamps, currentPage]);
+
+  const totalPages = Math.ceil(filteredCamps.length / rowsPerPage);
 
   return (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4">Registered Camps</h2>
-         <input
-          type="text"
-          placeholder="Search by Campname, CampFee,  participantName..."
-          className="input input-bordered w-full md:w-1/3 mb-6"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+      <input
+        type="text"
+        placeholder="Search by Campname, CampFee, participantName..."
+        className="input input-bordered w-full md:w-1/3 mb-6"
+        value={searchTerm}
+        onChange={(e) => {
+          setSearchTerm(e.target.value);
+          setCurrentPage(1); // Reset to page 1 on search
+        }}
+      />
       <div className="overflow-x-auto">
         <table className="table w-full border text-sm">
           <thead>
@@ -76,14 +89,16 @@ const RegisteredCamps = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredCamps.map((camp) => (
+            {paginatedCamps.map((camp) => (
               <tr key={camp._id}>
                 <td>{camp.campName}</td>
                 <td>৳{camp.campFees}</td>
                 <td>{camp.participantName}</td>
                 <td>
                   {camp.payment_status === "paid" ? (
-                    <span className=" bg-cyan-500 px-2 py-1 rounded-md text-white font-medium">Paid</span>
+                    <span className="bg-cyan-500 px-2 py-1 rounded-md text-white font-medium">
+                      Paid
+                    </span>
                   ) : (
                     <button
                       onClick={() => handlePayment(camp._id)}
@@ -95,24 +110,26 @@ const RegisteredCamps = () => {
                 </td>
                 <td>
                   <span
-                    className={
+                    className={`font-semibold px-2 py-1 rounded-md text-white ${
                       camp.Confirmation === "confirmed"
-                        ? "bg-green-600 font-semibold px-2 text-white py-1 rounded-md "
-                        : "bg-red-600 font-semibold px-2 text-white py-1 rounded-md"
-                    }
+                        ? "bg-green-600"
+                        : "bg-red-600"
+                    }`}
                   >
                     {camp.Confirmation}
                   </span>
                 </td>
                 <td className="flex flex-col gap-2">
                   <button
-                    disabled={camp.payment_status === 'paid'}
-                    onClick={() => handleCancel(camp._id, camp.payment_status === 'paid')}
+                    disabled={camp.payment_status === "paid"}
+                    onClick={() =>
+                      handleCancel(camp._id, camp.payment_status === "paid")
+                    }
                     className="btn btn-sm btn-error"
                   >
                     Cancel
                   </button>
-                  {camp.payment_status === 'paid' && (
+                  {camp.payment_status === "paid" && (
                     <button
                       onClick={() => setSelectedCamp(camp)}
                       className="btn btn-sm btn-secondary"
@@ -125,6 +142,39 @@ const RegisteredCamps = () => {
             ))}
           </tbody>
         </table>
+
+        {/* Pagination Footer */}
+        {filteredCamps.length > rowsPerPage && (
+          <div className="flex justify-center items-center gap-2 mt-4">
+            <button
+              className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              Prev
+            </button>
+            {[...Array(totalPages)].map((_, idx) => (
+              <button
+                key={idx}
+                className={`px-3 py-1 rounded ${
+                  currentPage === idx + 1 ? "bg-cyan-300 " : "bg-gray-200"
+                }`}
+                onClick={() => setCurrentPage(idx + 1)}
+              >
+                {idx + 1}
+              </button>
+            ))}
+            <button
+              className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
       {selectedCamp && (
@@ -132,7 +182,6 @@ const RegisteredCamps = () => {
           camp={selectedCamp}
           onClose={() => setSelectedCamp(null)}
           participantEmail={user.email}
-         
         />
       )}
     </div>

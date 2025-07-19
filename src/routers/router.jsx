@@ -79,7 +79,7 @@ import Paymenthestory from "./pages/Deshboard/Payment/Paymenthestory/Paymenthest
           Component:MangeCamps
         },
         {
-          path:'Update/:updateId',
+          path:'Update/:campId',
           Component:Update,
           
         },
