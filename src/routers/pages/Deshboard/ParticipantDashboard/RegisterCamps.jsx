@@ -1,6 +1,6 @@
 // components/RegisteredCamps.jsx
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import UseAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/UseAuth";
@@ -8,6 +8,7 @@ import FeedbackModal from "./FeedbackModel";
 import { useNavigate } from "react-router";
 
 const RegisteredCamps = () => {
+   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCamp, setSelectedCamp] = useState(null);
   const queryClient = useQueryClient();
   const axiousSecure = UseAxiosSecure();
@@ -40,9 +41,28 @@ const RegisteredCamps = () => {
     if (!paid) cancelMutation.mutate(id);
   };
 
+   const filteredCamps = useMemo (()=>{
+     let result = [...camps];
+     if(searchTerm){
+      const term = searchTerm.toLocaleLowerCase()
+     result = result.filter((camp)=>camp.campName.toLowerCase().includes(term) ||
+    camp.participantName.toLowerCase().includes(term) ||  camp.campFees.toLowerCase().includes(term) 
+  )
+     }
+     return result;
+
+   },[camps,searchTerm])
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4">Registered Camps</h2>
+         <input
+          type="text"
+          placeholder="Search by Campname, CampFee,  participantName..."
+          className="input input-bordered w-full md:w-1/3 mb-6"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       <div className="overflow-x-auto">
         <table className="table w-full border text-sm">
           <thead>
@@ -56,10 +76,10 @@ const RegisteredCamps = () => {
             </tr>
           </thead>
           <tbody>
-            {camps.map((camp) => (
+            {filteredCamps.map((camp) => (
               <tr key={camp._id}>
                 <td>{camp.campName}</td>
-                <td>${camp.campFees}</td>
+                <td>৳{camp.campFees}</td>
                 <td>{camp.participantName}</td>
                 <td>
                   {camp.payment_status === "paid" ? (

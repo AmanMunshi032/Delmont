@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import useAuth from "../../../hooks/UseAuth";
 import UseAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -7,6 +7,7 @@ import {  useNavigate,  } from "react-router";
 
 const MangeCamps = () => {
    const navigate = useNavigate();
+      const [searchTerm, setSearchTerm] = useState("");
   const { user } = useAuth();
   const axiosSecure = UseAxiosSecure();
   const { data: camps = [], refetch } = useQuery({
@@ -53,10 +54,32 @@ const MangeCamps = () => {
             }
         }
   }
+  const filteredCamps = useMemo (()=>{
+       let result = [...camps];
+       if(searchTerm){
+        const term = searchTerm.toLocaleLowerCase()
+       result = result.filter((camp)=>camp.campName.toLowerCase().includes(term) ||
+       camp.location.toLowerCase().includes(term)||  camp.doctor.toLowerCase().includes(term)
+     
+    )
+       }
+       return result;
+  
+     },[camps,searchTerm])
 
   return (
-    <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">My Camps</h2>
+    <div className="p-4">
+        <h2 className="text-2xl font-bold mb-4">My Camps</h2>
+         <input
+          type="text"
+          placeholder="Search by Campname, Camplocation,  Doctor..."
+          className="input input-bordered w-full md:w-1/3 mb-6"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+    <div className="overflow-x-auto ">
+    
+       
       <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
         <thead className="bg-blue-100">
           <tr>
@@ -68,7 +91,7 @@ const MangeCamps = () => {
           </tr>
         </thead>
         <tbody>
-          {camps.map((camp) => (
+          {filteredCamps .map((camp) => (
             <tr key={camp._id} className="border-t">
               <td className="px-4 py-2">{camp.campName}</td>
               <td className="px-4 py-2">{camp.dateTime}</td>
@@ -102,6 +125,7 @@ const MangeCamps = () => {
           )}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

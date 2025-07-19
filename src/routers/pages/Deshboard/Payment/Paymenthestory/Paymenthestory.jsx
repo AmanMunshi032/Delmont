@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {    useState } from 'react';
 import useAuth from '../../../../../hooks/UseAuth';
 import UseAxious from '../../../../../hooks/UseAxious';
 import { useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
 const formatDate = (iso) => new Date(iso).toLocaleString();
 const Paymenthestory = () => {
+     const [searchTerm, setSearchTerm] = useState("");
     const {user}=useAuth()
     const axiosSecure= UseAxious()
     const {isPending , data:Payments=[]}=useQuery({
@@ -13,12 +15,37 @@ const Paymenthestory = () => {
             return res.data
         }
     })
-    if(isPending){
+    console.log(user.email)
+  
+ const filteredCamps = useMemo (()=>{
+     let result = [...Payments];
+     if(searchTerm){
+      const term = searchTerm.toLocaleLowerCase()
+     result = result.filter((camp)=>camp.amount.toLowerCase().includes(term) 
+   
+  )
+     }
+     return result;
+
+   },[Payments,searchTerm])
+
+     if(isPending){
         return '.....Loading'
     }
 
     return (
+        <div className='p-4'>
+    <input
+          type="text"
+          placeholder="Search by Amount..."
+          className="input input-bordered w-full md:w-1/3 mb-6 "
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
             <div className="overflow-x-auto shadow-md rounded-xl">
+                 
+                  
+                 
             <table className="table table-zebra w-full">
                 <thead className="bg-base-200 text-base font-semibold">
                     <tr>
@@ -30,8 +57,8 @@ const Paymenthestory = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Payments?.length > 0 ? (
-                        Payments.map((p, index) => (
+                    {filteredCamps?.length > 0 ? (
+                        filteredCamps.map((p, index) => (
                             <tr key={p.transactionId}>
                                 <td>{index + 1}</td>
                                 <td className="truncate" title={p.parcelId}>
@@ -55,6 +82,7 @@ const Paymenthestory = () => {
                     )}
                 </tbody>
             </table>
+        </div>
         </div>
     );
 };
