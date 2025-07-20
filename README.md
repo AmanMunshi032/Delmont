@@ -3,7 +3,7 @@
 A full-featured MERN stack web application that streamlines the process of organizing and participating in medical camps. MCMS enables organizers to create, manage, and track medical camps, while allowing participants to register, pay, and provide feedback with ease.
 
 ## 🚀 Live Site
-[🔗 Click here to visit MCMS Live](https://your-live-site-url.com)
+[🔗 Click here to visit MCMS Live](https://medical-camp-cb4e0.web.app)
 
 ---
 

@@ -81,7 +81,7 @@ const PaymentForm = () => {
       } else {
         setError("");
         if (result.paymentIntent.status === "succeeded") {
-          console.log("Payment succeeded!");
+          // console.log("Payment succeeded!");
           // const transactionId = result.paymentIntent.id;
           const paymentData = {
             ParticipantId,
