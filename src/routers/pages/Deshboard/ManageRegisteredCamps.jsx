@@ -3,17 +3,17 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../../hooks/useAxiosSecure";
-
 const ManageRegisteredCamps = () => {
   const axiosSecure = UseAxiosSecure();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
   const { data: registrations = [], isLoading, refetch } = useQuery({
-    queryKey: ["registrations"],
+    queryKey: ["registrations" ],
     queryFn: async () => {
-      const res = await axiosSecure.get("/registrations");
+      const res = await axiosSecure.get(`/registrations`);
       return res.data;
     },
   });

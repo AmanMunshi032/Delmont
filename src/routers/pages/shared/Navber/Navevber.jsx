@@ -4,7 +4,7 @@ import "./Navber.css";
 import Logo from "../Logo/Logo";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../../../hooks/UseAuth";
-  import { ToastContainer} from 'react-toastify';
+  import { toast, ToastContainer} from 'react-toastify';
 // Dummy user (replace with actual user/auth logic)
 
 const links = (
@@ -32,7 +32,7 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   const handleLogout = () => {
-    alert("Logged out!");
+    toast("Logout successfully.!");
    Logout()
     
   };

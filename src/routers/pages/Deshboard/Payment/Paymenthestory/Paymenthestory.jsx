@@ -13,7 +13,7 @@ const Paymenthestory = () => {
   const { user } = useAuth();
   const axiosSecure = UseAxious();
 
-  const { isPending, data: Payments = [] } = useQuery({
+  const { data: Payments = [],isPending,  } = useQuery({
     queryKey: ['paymenthestory', user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/payments?email=${user?.email}`);

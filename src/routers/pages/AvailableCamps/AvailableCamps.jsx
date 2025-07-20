@@ -131,7 +131,7 @@ const AvailableCamps = () => {
             </p>
             <p className="text-gray-700">
               👥
-              <strong>Participants:</strong> {camp.participantCount}
+              <strong>Participants:</strong> <span className="text-orange-300 font-bold">{camp.participantCount}</span>
             </p>
             <p className="text-gray-700">
               💸

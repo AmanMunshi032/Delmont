@@ -19,13 +19,16 @@ import ParticipantProfile from "./pages/Deshboard/ParticipantDashboard/Participa
 import RegisteredCamps from "./pages/Deshboard/ParticipantDashboard/RegisterCamps";
 import Payment from "./pages/Deshboard/Payment/Payment";
 import Paymenthestory from "./pages/Deshboard/Payment/Paymenthestory/Paymenthestory";
+import Error from "../Error/Error";
+import Forbidden from "./pages/Forbiddent/Forbidden";
+import Adminroute from "../router/Adminroute";
 
 
   export const router = createBrowserRouter([
     {
       path: "/",
       Component:Root ,
-       
+       errorElement:<Error></Error>,
       children:[
         {
           index: true,
@@ -38,6 +41,10 @@ import Paymenthestory from "./pages/Deshboard/Payment/Paymenthestory/Paymenthest
         {
           path:'/CampDetails/:campId',
           Component:CampDetails
+        },
+        {
+          path:'/Forbidden',
+          Component:Forbidden
         }
       
       
@@ -72,20 +79,21 @@ import Paymenthestory from "./pages/Deshboard/Payment/Paymenthestory/Paymenthest
         },
         {
           path:'AddCamp',
-          Component:AddCamp 
+          element:<Adminroute> <AddCamp></AddCamp> </Adminroute>
         },
         {
           path:'ManageCamps',
-          Component:MangeCamps
+         element:<Adminroute> <MangeCamps></MangeCamps></Adminroute>
         },
         {
           path:'Update/:campId',
-          Component:Update,
+          element:<Adminroute> <Update></Update></Adminroute>
           
         },
         {
            path:'ManageRegisteredCamps',
-           Component:ManageRegisteredCamps
+           
+           element:<Adminroute><ManageRegisteredCamps></ManageRegisteredCamps> </Adminroute>
         },
         // Participant Dashboard
          {
