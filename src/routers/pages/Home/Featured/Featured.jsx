@@ -61,7 +61,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white h-[300] w-[30] flex flex-col justify-between shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="bg-white  flex flex-col justify-between shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <img
                 src={camp.image}
