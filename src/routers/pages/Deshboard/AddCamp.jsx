@@ -66,7 +66,7 @@ const AddCamp = () => {
         <textarea {...register("description", { required: true })} placeholder="Description" rows={4} className="input w-full" />
         {errors.description && <p className="text-red-500 text-sm">Description required</p>}
 
-        <button type="submit" className="w-full bg-cyan-300 p-3 rounded-xl hover:bg-cyan-700 transition">
+        <button type="submit" className="w-full font-bold bg-cyan-300 p-3 rounded-xl hover:bg-cyan-600 transition">
           Submit
         </button>
       </form>

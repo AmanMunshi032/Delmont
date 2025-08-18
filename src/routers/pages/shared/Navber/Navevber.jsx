@@ -4,7 +4,7 @@ import "./Navber.css";
 import Logo from "../Logo/Logo";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../../../hooks/UseAuth";
-  import { toast, ToastContainer} from 'react-toastify';
+import { toast, ToastContainer } from "react-toastify";
 // Dummy user (replace with actual user/auth logic)
 
 const links = (
@@ -19,13 +19,12 @@ const links = (
         <NavLink to="/AvailableCamps">Available-camps</NavLink>
       </li>
     </ul>
-   
   </>
 );
 
 const Navbar = () => {
-  const { user,Logout } = useAuth();
- 
+  const { user, Logout } = useAuth();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -33,20 +32,19 @@ const Navbar = () => {
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   const handleLogout = () => {
     toast("Logout successfully.!");
-   Logout()
-    
+    Logout();
   };
 
   return (
-    <nav className="bg-white shadow-md px-4 py-3">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+    <nav className=" shadow-md px-4 py-3  fixed w-full z-50 bg-[#BBDCE5] top-0">
+      <div className="max-w-7xl mx-auto flex justify-between items-center ">
         {/* Logo */}
         <Logo></Logo>
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-6 items-center">
           {links}
 
-          {user? (
+          {user ? (
             <div className="relative">
               <button
                 onClick={toggleDropdown}
@@ -80,20 +78,19 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-          ) :(
+          ) : (
             <Link
               to="/Login"
               className="block px-3 py-2 rounded-md font-bold bg-cyan-300 w-fit"
             >
               Join Us
             </Link>
-          ) }
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
         <button className="md:hidden text-2xl" onClick={toggleMenu}>
           {menuOpen ? <FaTimes /> : <FaBars />}
-           
         </button>
       </div>
 
@@ -102,7 +99,7 @@ const Navbar = () => {
         <div className="md:hidden mt-3 space-y-2">
           {links}
 
-          {user?  (
+          {user ? (
             <div className="border-t pt-2">
               <div className="px-2 font-semibold">{user?.displayName}</div>
               <Link
@@ -119,7 +116,7 @@ const Navbar = () => {
                 Logout
               </button>
             </div>
-          ):(
+          ) : (
             <Link
               to="/Login"
               className="block  px-2 py-1 rounded-md font-semibold bg-cyan-300 w-fit"

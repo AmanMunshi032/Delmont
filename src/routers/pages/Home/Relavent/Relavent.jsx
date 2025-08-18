@@ -36,7 +36,7 @@ const cardVariants = {
 const WhyJoinSection = () => {
   return (
 
-    <section className="py-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+    <section className="py-16 px-4 bg-gradient-to-b shadow-md rounded-2xl">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h2
           className="text-4xl font-bold mb-4"

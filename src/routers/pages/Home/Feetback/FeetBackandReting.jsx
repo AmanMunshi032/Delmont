@@ -15,11 +15,12 @@ const FeetBackandReting = () => {
         }
     })
     return (
-        <div className="p-6 bg-white shadow-md rounded-2xl mt-8">
-      <h2 className="text-2xl font-bold mb-4">Your Feedback & Ratings</h2>
-      <ul className="space-y-4">
+        <div className="p-6  shadow-md rounded-2xl mt-8">
+      <h2 className="text-4xl font-bold mb-4 text-center">Your Feedback & Ratings</h2>
+     <div className=''>
+       <div className="space-y-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {feedbacks.map(fb => (
-          <li key={fb._id} className="border p-4 rounded-xl">
+          <div key={fb._id} className="border p-4 rounded-xl  ">
             <h3 className="font-semibold">{fb.campName}</h3>
             <div className="flex items-center mb-1">
               {[...Array(5)].map((_, i) => (
@@ -31,13 +32,14 @@ const FeetBackandReting = () => {
               <span className="ml-2 text-sm text-gray-600">({fb.rating} stars)</span>
             </div>
             <p className="text-gray-700 italic">{fb.feedback}</p>
-    <p className="text-xs text-gray-400 mt-1"> Name:{fb.
+    <p className="text-xs  mt-1"> Name:{fb.
 participantName}</p>
-    <p className="text-xs text-gray-400 mt-1"> Email:{fb.
+    <p className="text-xs  mt-1"> Email:{fb.
 participantEmail}</p>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
+     </div>
     </div>
     );
 };

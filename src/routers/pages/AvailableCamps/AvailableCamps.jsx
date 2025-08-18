@@ -55,8 +55,8 @@ const AvailableCamps = () => {
     return <span className="loading loading-spinner loading-xl"></span>;
   }
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-6">
+    <div className="mt-16 bg-gray-50 py-8 px-4">
+      <h1 className="text-4xl font-bold text-center mb-6">
         Available Medical Camps
       </h1>
 
@@ -81,7 +81,7 @@ const AvailableCamps = () => {
         </select>
 
         <button
-          className="btn btn-outline flex items-center gap-2"
+          className="btn btn-outline lg:flex items-center gap-2 hidden "
           onClick={() => setIsThreeColumn(!isThreeColumn)}
         >
           {isThreeColumn ? (
@@ -107,29 +107,22 @@ const AvailableCamps = () => {
         {filteredCamps.map((camp) => (
           <div
             key={camp._id}
-            className="card bg-white border shadow-lg hover:shadow-2xl transition rounded-xl p-4"
+            className="card bg-white flex flex-col  justify-between shadow-lg hover:shadow-2xl transition rounded-xl p-4"
           >
             <img
               src={camp.image}
               alt={camp.campName}
-              className="rounded-lg w-full h-40 object-cover mb-3"
+              className="rounded-lg w-full h-48 object-cover mb-3"
             />
             <h2 className="text-xl font-semibold"> {camp.campName}</h2>
             <p className="text-gray-700">
               📅
               <strong>Date & Time:</strong> {camp.dateTime}
             </p>
-            <p className="text-gray-700">
-              📍
-              <strong>Location:</strong>
-              {camp.location}
-            </p>
-            <p className="text-gray-700">
-              🧑‍⚕️
-              <strong>Healthcare Pro:</strong>
-              {camp.doctor}
-            </p>
-            <p className="text-gray-700">
+            
+           
+           <div className="flex justify-between">
+             <p className="text-gray-700">
               👥
               <strong>Participants:</strong> <span className="text-orange-300 font-bold">{camp.participantCount}</span>
             </p>
@@ -138,13 +131,14 @@ const AvailableCamps = () => {
               <strong>Fees:</strong>
               {camp.campFees}
             </p>
+           </div>
             <p className="text-gray-600 mt-1 text-sm">
               {camp.description.slice(0, 100)}...
             </p>
 
             <Link
               to={`/CampDetails/${camp._id}`}
-              className="btn  bg-cyan-300 mt-4 w-full"
+              className="btn  rounded-lg bg-cyan-300 mt-4 w-full"
             >
               View Details
             </Link>
