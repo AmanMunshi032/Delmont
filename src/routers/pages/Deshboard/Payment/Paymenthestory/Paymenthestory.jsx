@@ -50,7 +50,7 @@ const Paymenthestory = () => {
       <input
         type="text"
         placeholder="Search by Amount..."
-        className="input input-bordered w-full md:w-2/3 mb-6"
+        className="input input-bordered text-black w-full md:w-2/3 mb-6"
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);

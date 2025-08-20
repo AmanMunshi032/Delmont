@@ -1,4 +1,4 @@
-# 🏥Delmont 
+# 🏥 HealthFirst Camp
 
 A full-featured MERN stack web application that streamlines the process of organizing and participating in medical camps. MCMS enables organizers to create, manage, and track medical camps, while allowing participants to register, pay, and provide feedback with ease.
 

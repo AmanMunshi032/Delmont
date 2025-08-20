@@ -84,7 +84,7 @@ const OurServices = () => {
           transition={{ duration: 0.7 }}
           className="mb-14"
         >
-          <h2 className="text-4xl font-extrabold ">
+          <h2 className="text-4xl font-bold ">
             Our Medical camp Services
           </h2>
           <p className=" mt-3 text-lg max-w-2xl mx-auto">

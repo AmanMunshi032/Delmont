@@ -64,29 +64,29 @@ const CampDetails = () => {
   if (isLoading) return <div className="text-center mt-20">Loading...</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mt-11">
+    <div className="max-w-4xl mx-auto p-6 mt-11 ">
       <img
         src={camp?.image}
         alt={camp?.campName}
         className="rounded-xl object-cover mb-6"
       />
       <h2 className="text-3xl font-bold mb-2">{camp?.campName}</h2>
-      <p className="text-gray-700 mb-1">
+      <p className="  mb-1">
         <strong>Fees:</strong> ${camp.campFees}
       </p>
-      <p className="text-gray-700 mb-1">
+      <p className=" mb-1">
         <strong>Date & Time:</strong> {camp.dateTime}
       </p>
-      <p className="text-gray-700 mb-1">
+      <p className=" mb-1">
         <strong>Location:</strong> {camp.location}
       </p>
-      <p className="text-gray-700 mb-1">
+      <p className=" mb-1">
         <strong>Healthcare Professional:</strong> {camp.doctor}
       </p>
-      <p className="text-gray-700 mb-1">
+      <p className=" mb-1">
         <strong>Participants:</strong> {camp.participantCount}
       </p>
-      <p className="text-gray-700 mb-4">
+      <p className=" mb-4">
         <strong>Description:</strong> {camp.description}
       </p>
 
@@ -99,7 +99,7 @@ const CampDetails = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black text-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white rounded-xl p-6 w-full max-w-md relative">
             <h3 className="text-xl font-bold mb-4 text-center text-cyan-300">
               Register for {camp.campName}
