@@ -22,7 +22,7 @@ export default function DashboardLayout() {
      <div className="min-h-screen  max-w-7xl mx-auto flex flex-col md:flex-row">
       {/* Mobile Menu Button */}
       <button
-        className="md:hidden p-4  bg-gray-200 flex items-center justify-between"
+        className="md:hidden p-4  flex items-center justify-between"
         onClick={() => setIsOpen(!isOpen)}
       >
         <FaBars className="text-xl" />

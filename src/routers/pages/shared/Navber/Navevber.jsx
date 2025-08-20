@@ -106,7 +106,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden mt-3 space-y-2">
           {links}
-
+  <button onClick={()=>setdarkMode((prev) =>!prev)}>{darkMode?<CiLight size={28} />:<MdDarkMode size={28} />} </button>
           {user ? (
             <div className="border-t pt-2">
               <div className="px-2 font-semibold">{user?.displayName}</div>

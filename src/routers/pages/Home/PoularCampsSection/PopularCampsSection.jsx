@@ -25,7 +25,7 @@ const PopularCampsSection = () => {
   // setCamps(sorted);
 
   return (
-    <section className="py-12 dark ">
+    <section className="py-12 ">
       <div className="max-w-7xl mx-auto px-4  shadow-md rounded-2xl">
         <h2 className="text-4xl font-bold text-center mb-8">
           Popular Medical Camps

@@ -10,7 +10,7 @@ import OurServices from './OurServices/OurServices';
 
 const Home = () => {
     return (
-        <div  className=''>
+        <div>
          <Banner></Banner>
          <PopularCampsSection></PopularCampsSection>
          <Aboutus></Aboutus>
