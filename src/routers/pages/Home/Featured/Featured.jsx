@@ -44,10 +44,10 @@ const [isModalOpen, setIsModalOpen] = useState(false);
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold  text-gray-800">
+          <h2 className="text-4xl font-bold ">
             🌟 Featured Medical Camps
           </h2>
-          <p className="text-gray-600 mt-2">
+          <p className=" mt-2">
             Join our upcoming health camps and take a step towards better health.
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white  flex flex-col justify-between shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="bg-white  flex flex-col justify-between shadow-xl  rounded-2xl  overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <img
                 src={camp.image}
@@ -82,7 +82,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
                   <MapPin className="w-4 h-4 mr-2 text-red-500" />
                   {camp.location}
                 </div>
-                <button   onClick={() => setIsModalOpen(true)} className="w-full flex items-center font-bold justify-center gap-2 bg-cyan-300  py-2 rounded-lg  hover:bg-cyan-500 transition">
+                <button   onClick={() => setIsModalOpen(true)} className="w-full flex items-center font-bold justify-center gap-2 bg-cyan-300 text-black  py-2 rounded-lg  hover:bg-cyan-500 transition">
                   <Stethoscope className="w-4 h-4" />
                   Register Now
                 </button>

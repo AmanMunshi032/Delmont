@@ -79,13 +79,13 @@ const MangeCamps = () => {
   const totalPages = Math.ceil(filteredCamps.length / rowsPerPage);
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">My Camps</h2>
+    <div className="p-4 text-center">
+      <h2 className="text-4xl font-bold mb-4 text-center">My Camps</h2>
 
       <input
         type="text"
         placeholder="Search by Camp Name, Location, Doctor..."
-        className="input input-bordered w-full md:w-1/3 mb-6"
+        className="input input-bordered  text-black w-full md:w-1/3 mb-6"
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);
@@ -94,7 +94,7 @@ const MangeCamps = () => {
       />
 
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <table className="min-w-full text-black bg-white shadow-md rounded-lg overflow-hidden">
           <thead className="bg-blue-100">
             <tr>
               <th className="px-4 py-2 text-left">Camp Name</th>

@@ -15,21 +15,21 @@ const ContactsSection = () => {
           <h2 className="text-3xl font-bold ">
             📞Contact Our Medical Camp Team
           </h2>
-          <p className="text-gray-600">
+          <p className="">
             Have questions or want to join our upcoming camp? Reach out to us
             anytime, we’ll be happy to assist you.
           </p>
 
           <div className="space-y-4">
-            <div className="flex items-center gap-3 text-gray-700">
+            <div className="flex items-center gap-3 ">
               <Mail className="w-5 h-5 text-cyan-300" />
               <span>amanmunshi032@gmail.com</span>
             </div>
-            <div className="flex items-center gap-3 text-gray-700">
+            <div className="flex items-center gap-3 ">
               <Phone className="w-5 h-5 text-green-600" />
               <span>+8801949457409</span>
             </div>
-            <div className="flex items-center gap-3 text-gray-700">
+            <div className="flex items-center gap-3 ">
               <MapPin className="w-5 h-5 text-red-600" />
               <span>Dhaka Medical College, Dhaka, Bangladesh</span>
             </div>
@@ -41,7 +41,7 @@ const ContactsSection = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="bg-white shadow-xl rounded-2xl p-8 space-y-6"
+          className=" shadow-xl rounded-2xl p-8 space-y-6"
         >
           <h3 className="text-2xl font-semibold ">
             Send Us a Message
@@ -71,7 +71,7 @@ const ContactsSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full bg-cyan-300 py-3 rounded-xl font-bold hover:bg-cyan-600 transition"
+            className="w-full bg-cyan-300 py-3 rounded-xl text-black font-bold hover:bg-cyan-600 transition"
           >
             Send Message
           </motion.button>

@@ -6,9 +6,9 @@ import Footer from '../routers/pages/shared/Footer/Footer';
 
 const Root = () => {
     return (
-        <div>
+        <div className=' bg-Primary dark:bg-gray-800 dark:text-white'>
         <Navevber></Navevber>
-        <div className='max-w-7xl mx-auto md:mt-4 mt-0'>
+        <div className='max-w-7xl mx-auto md:mt-4 mt-0 '>
             <Outlet></Outlet>  
         </div>
           <Footer></Footer>

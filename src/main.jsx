@@ -7,16 +7,20 @@ import { router } from './routers/router.jsx'
 import Authprovider from './Context/AuthContext/Authprovider.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ToastContainer } from 'react-toastify'
-
+import Darktheme from './Components/Darkmoude/Darktheme.jsx'
 const queryClient = new QueryClient()
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <QueryClientProvider  client={queryClient}>
+<Darktheme>
+  <QueryClientProvider  client={queryClient}>
 <Authprovider>
      <RouterProvider router={router}></RouterProvider>
        <ToastContainer />  
  </Authprovider>
+
     </QueryClientProvider>
+ 
+  </Darktheme>
  
   </StrictMode>,
 )

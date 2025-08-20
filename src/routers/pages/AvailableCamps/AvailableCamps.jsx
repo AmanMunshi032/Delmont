@@ -55,7 +55,7 @@ const AvailableCamps = () => {
     return <span className="loading loading-spinner loading-xl"></span>;
   }
   return (
-    <div className="mt-16 bg-gray-50 py-8 px-4">
+    <div className="mt-16 py-8 px-4 bg-[#BBDCE5] dark:bg-gray-800 dark:text-white">
       <h1 className="text-4xl font-bold text-center mb-6">
         Available Medical Camps
       </h1>
@@ -65,13 +65,13 @@ const AvailableCamps = () => {
         <input
           type="text"
           placeholder="Search by name, location, date..."
-          className="input input-bordered w-full md:w-1/3"
+          className="input input-bordered w-full md:w-1/3  dark:text-black"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
 
         <select
-          className="select select-bordered"
+          className="select select-bordered dark:text-black"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
         >
@@ -107,7 +107,7 @@ const AvailableCamps = () => {
         {filteredCamps.map((camp) => (
           <div
             key={camp._id}
-            className="card bg-white flex flex-col  justify-between shadow-lg hover:shadow-2xl transition rounded-xl p-4"
+            className="card bg-white flex flex-col  justify-between shadow-lg hover:shadow-2xl transition rounded-2xl p-4"
           >
             <img
               src={camp.image}

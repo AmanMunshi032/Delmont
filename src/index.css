@@ -5,4 +5,8 @@ body{
 
 @import "tailwindcss";
 @plugin "daisyui";
-
+@custom-variant dark (&:where(.dark, .dark *));
+@theme{
+    --color-Primary:#BBDCE5;
+    --color-primary-dark:#0d0d0d
+}

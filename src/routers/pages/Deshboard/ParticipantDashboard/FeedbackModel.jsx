@@ -38,7 +38,7 @@ const FeedbackModal = ({ camp, onClose, participantEmail }) => {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded shadow w-[400px]">
+      <div className="bg-white dark:text-black p-6 rounded shadow w-[400px]">
         <h3 className="text-lg font-semibold mb-2">Feedback for {camp.campName}</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <textarea
@@ -55,8 +55,8 @@ const FeedbackModal = ({ camp, onClose, participantEmail }) => {
             {...register('rating', { required: true })}
           />
           <div className="flex justify-between">
-            <button type="submit" className="btn btn-sm btn-primary">Submit</button>
-            <button onClick={onClose} type="button" className="btn btn-sm">Cancel</button>
+            <button type="submit" className="btn btn-sm bg-cyan-300">Submit</button>
+            <button onClick={onClose} type="button" className="btn bg-cyan-300 text-black btn-sm">Cancel</button>
           </div>
         </form>
       </div>

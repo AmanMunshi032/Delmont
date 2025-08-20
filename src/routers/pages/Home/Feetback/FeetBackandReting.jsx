@@ -29,9 +29,9 @@ const FeetBackandReting = () => {
                   className={i < fb.rating ? 'text-yellow-400' : 'text-gray-300'}
                 />
               ))}
-              <span className="ml-2 text-sm text-gray-600">({fb.rating} stars)</span>
+              <span className="ml-2 text-sm ">({fb.rating} stars)</span>
             </div>
-            <p className="text-gray-700 italic">{fb.feedback}</p>
+            <p className=" italic">{fb.feedback}</p>
     <p className="text-xs  mt-1"> Name:{fb.
 participantName}</p>
     <p className="text-xs  mt-1"> Email:{fb.

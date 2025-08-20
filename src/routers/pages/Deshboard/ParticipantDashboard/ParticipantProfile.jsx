@@ -25,7 +25,7 @@ const ParticipantProfile = () => {
       });
     }
     return (
-           <div className='flex justify-center items-center '>
+           <div className='flex justify-center items-center text-black '>
             <div className=' bg-base-300  text-center  md:px-30 md:py-20   px-4 py-4 my-12 rounded-md'>
               <div className='flex justify-center items-center px-24 py-10 bg-white rounded-xl shadow-xl'>
               <img  className='md:w-24 md:h-24  rounded-full' src={user && user.photoURL} alt="" />

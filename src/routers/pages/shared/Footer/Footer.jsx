@@ -7,7 +7,7 @@ import { FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <footer className=" inset-shadow-2xs  text-gray-700 mt-10">
+        <footer className=" inset-shadow-2xs   mt-10">
       <div className="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
         {/* Logo & Name */}
         <div>

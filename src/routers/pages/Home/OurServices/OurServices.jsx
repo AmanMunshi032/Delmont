@@ -87,7 +87,7 @@ const OurServices = () => {
           <h2 className="text-4xl font-extrabold ">
             Our Medical camp Services
           </h2>
-          <p className="text-gray-600 mt-3 text-lg max-w-2xl mx-auto">
+          <p className=" mt-3 text-lg max-w-2xl mx-auto">
             Explore the wide range of medical services offered in our camps to
             keep you and your family healthy.
           </p>

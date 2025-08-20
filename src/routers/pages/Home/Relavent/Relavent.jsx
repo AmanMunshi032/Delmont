@@ -48,7 +48,7 @@ const WhyJoinSection = () => {
           Why Join Our Medical Camps?
         </motion.h2>
         <motion.p
-          className="text-gray-600 mb-12 max-w-2xl mx-auto"
+          className=" mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -68,7 +68,7 @@ const WhyJoinSection = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-xl transition duration-300"
+              className="bg-white border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300"
             >
               <div className="mb-4 flex justify-center">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>

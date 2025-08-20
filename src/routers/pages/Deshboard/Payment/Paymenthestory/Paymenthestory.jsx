@@ -46,11 +46,11 @@ const Paymenthestory = () => {
   if (isPending) return '.....Loading';
 
   return (
-    <div className="p-4">
+    <div className="p-4 text-center">
       <input
         type="text"
         placeholder="Search by Amount..."
-        className="input input-bordered w-full md:w-1/3 mb-6"
+        className="input input-bordered w-full md:w-2/3 mb-6"
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);
@@ -59,8 +59,8 @@ const Paymenthestory = () => {
       />
 
       <div className="overflow-x-auto shadow-md rounded-xl">
-        <table className="table table-zebra w-full">
-          <thead className="bg-base-200 text-base font-semibold">
+        <table className="table w-full">
+          <thead className="bg-base-200 text-base font-semibold text-black">
             <tr>
               <th>#</th>
               <th>Parcel ID</th>

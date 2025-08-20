@@ -18,14 +18,15 @@ export default function DashboardLayout() {
    const {role,roleLoding }=UseUserRole()
   //  console.log(role)
   return (
-    <div className="min-h-screen  max-w-7xl mx-auto flex flex-col md:flex-row">
+   <div className="bg-Primary  dark:bg-gray-800 dark:text-white">
+     <div className="min-h-screen  max-w-7xl mx-auto flex flex-col md:flex-row">
       {/* Mobile Menu Button */}
       <button
         className="md:hidden p-4  bg-gray-200 flex items-center justify-between"
         onClick={() => setIsOpen(!isOpen)}
       >
         <FaBars className="text-xl" />
-        <span className="text-xl font-bold">Dashboard</span>
+        <span className="text-xl font-bold ">Dashboard</span>
       </button>
 
       {/* Sidebar */}
@@ -45,7 +46,7 @@ export default function DashboardLayout() {
           />
         </div>
 
-        <nav className="space-y-4 text-lg font-medium">
+        <nav className="space-y-4 text-lg font-medium text-black">
              <Link  to='/'>
            <Logo></Logo>
           </Link>
@@ -153,5 +154,6 @@ export default function DashboardLayout() {
         <Outlet />
       </main>
     </div>
+   </div>
   );
 }

@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import "./Navber.css";
 import Logo from "../Logo/Logo";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../../../hooks/UseAuth";
+import { CiLight } from "react-icons/ci";
+import { MdDarkMode } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
+import { UserContext } from "../../../../Components/Darkmoude/Darktheme";
+
+
+
+
 // Dummy user (replace with actual user/auth logic)
 
 const links = (
@@ -23,8 +30,8 @@ const links = (
 );
 
 const Navbar = () => {
+ const {darkMode,setdarkMode}=useContext(UserContext)
   const { user, Logout } = useAuth();
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -33,17 +40,18 @@ const Navbar = () => {
   const handleLogout = () => {
     toast("Logout successfully.!");
     Logout();
+ 
   };
 
   return (
-    <nav className=" shadow-md px-4 py-3  fixed w-full z-50 bg-[#BBDCE5] top-0">
+    <nav className=" shadow-md px-4 py-3  fixed w-full z-50 bg-[#BBDCE5] dark:bg-gray-800 dark:text-white  top-0">
       <div className="max-w-7xl mx-auto flex justify-between items-center ">
         {/* Logo */}
         <Logo></Logo>
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-6 items-center">
           {links}
-
+           <button onClick={()=>setdarkMode((prev) =>!prev)}>{darkMode?<CiLight size={28} />:<MdDarkMode size={28} />} </button>
           {user ? (
             <div className="relative">
               <button
@@ -65,7 +73,7 @@ const Navbar = () => {
                   </div>
                   <Link
                     to="/dashboard"
-                    className="block px-4 py-2 hover:bg-gray-100 text-sm"
+                    className="block px-4 py-2 text-black hover:bg-gray-100 text-sm"
                   >
                     Dashboard
                   </Link>

@@ -16,24 +16,24 @@ const Aboutus = () => {
           viewport={{ once: true }}
           className="space-y-6"
         >
-           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800">
+           <h2 className="text-3xl md:text-4xl font-bold text-center ">
             About Our Medical Camp
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className=" leading-relaxed">
             Our Medical Camp is dedicated to providing accessible and quality healthcare 
             to communities in need. We organize free health checkups, awareness programs, 
             and consultations with experienced medical professionals.
           </p>
 
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-gray-700">Our Mission</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-semibold ">Our Mission</h3>
+            <p className="">
               To serve underprivileged communities by ensuring healthcare access, 
               preventive education, and compassionate medical support.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-700">Our Vision</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-semibold ">Our Vision</h3>
+            <p className="">
               A healthier society where no one is deprived of basic medical facilities 
               and awareness about well-being.
             </p>

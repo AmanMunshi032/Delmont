@@ -74,13 +74,13 @@ const ManageRegisteredCamps = () => {
   if (isLoading) return <div className="text-center py-10">Loading...</div>;
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Manage Registered Camps</h2>
+    <div className="p-4 text-center">
+      <h2 className="text-4xl font-bold mb-4">Manage Registered Camps</h2>
 
       <input
         type="text"
         placeholder="Search by campName, campFees, participantName..."
-        className="input input-bordered w-full md:w-1/3 mb-6"
+        className="input text-black input-bordered w-full md:w-1/3 mb-6"
         value={searchTerm}
         onChange={(e) => {
           setSearchTerm(e.target.value);
@@ -92,7 +92,7 @@ const ManageRegisteredCamps = () => {
         <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
           <thead className="bg-gray-200 text-gray-700">
             <tr>
-              <th className="py-2 px-4 text-left">Camp Name</th>
+              <th className="py-2 px-4 text-left ">Camp Name</th>
               <th className="py-2 px-4 text-left">Fees</th>
               <th className="py-2 px-4 text-left">Participant Name</th>
               <th className="py-2 px-4 text-left">Payment Status</th>
@@ -102,7 +102,7 @@ const ManageRegisteredCamps = () => {
           </thead>
           <tbody>
             {paginatedCamps.map((reg) => (
-              <tr key={reg._id} className="border-t">
+              <tr key={reg._id} className="border-t text-black">
                 <td className="py-2 px-4">{reg.campName}</td>
                 <td className="py-2 px-4">৳{reg.campFees}</td>
                 <td className="py-2 px-4">{reg.participantName}</td>
