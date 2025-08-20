@@ -74,7 +74,7 @@ const CampDetails = () => {
       <p className="  mb-1">
         <strong>Fees:</strong> ${camp.campFees}
       </p>
-      <p className=" bg-amber-200 mb-1">
+      <p className="  mb-1">
         <strong>Date & Time:</strong> {camp.dateTime}
       </p>
       <p className=" mb-1">
